@@ -84,11 +84,10 @@ gulp.task('serve', ['styles'], function () {
             baseDir: 'app',
             directory: true
         },
+        port: 3030,
         debugInfo: false,
-        open: false,
-        hostnameSuffix: ".xip.io"
+        open: "local",
     }, function (err, bs) {
-        require('opn')(bs.options.url);
         console.log('Started connect web server on ' + bs.options.url);
     });
 });
@@ -110,10 +109,10 @@ gulp.task('wiredep', function () {
 });
 
 gulp.task('watch', ['serve'], function () {
- 
+
     // watch for changes
     gulp.watch(['app/*.html'], reload);
- 
+
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/images/**/*', ['images']);
