@@ -5,3 +5,4 @@ dist
 app/vender
 test/vender
 app/styles/*.css
+.DS_Store
