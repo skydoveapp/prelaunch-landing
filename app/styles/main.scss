@@ -8,10 +8,6 @@ $brand: #1386A0;
 
 /* Responsive: Portrait tablets and up */
 @media screen and (max-width: 768px) {
-    .controll-balls {
-        display: none;
-    }
-
     .image-container {
         width: 100% !important;
     }
@@ -30,6 +26,10 @@ $brand: #1386A0;
             margin-right: 0 !important;
             margin-top: 15px !important;
         }
+    }
+
+    .head-line {
+        background-position: 80% bottom !important;
     }
 
     #subscribe-form {
@@ -128,32 +128,9 @@ p {
     right: 0;
 }
 
-.controll-balls {
-    position: absolute;
-    list-style: none;
-}
-
-.controll-balls {
-    @extend .vertical-middle;
-    position: absolute;
-    font-size: 30px;
-    padding-left: 0;
-    margin-bottom: 0;
-    right: 31px;
-    font-size: 48px;
-    line-height: 28px;
-
-    .controll-ball {
-        opacity: .5;
-
-        &.active {
-            opacity: .8;
-        }
-    }
-}
-
 .head-line {
-    background-image: url();
+    background-image: url("../images/background.png");
+    background-position: center bottom;
     color: $brand;
     padding-left: 90px;
     padding-right: 90px;
@@ -187,8 +164,11 @@ p {
     color: #ffffff;
     padding-left: calc((100% - 530px) / 2);
     padding-right: calc((100% - 530px) / 2);
-    margin-bottom: 20px;
-    padding-top: 10px;
+    padding-top: 72px;
+
+    h2 {
+      margin-top: -62px;
+    }
 
     > img {
       width: 530px;

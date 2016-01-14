@@ -5,21 +5,16 @@ $(document).ready(function() {
 
     $('#to-subscribe').click(function(){
         scrollTo(subscribeHeight(), function(){
-          $('#subscribe-form input').focus()
+          $('#subscribe-form input').focus();
         });
     });
+
     $('.scroll-down').click(function(){
       scrollTo($('.how-it-works:eq(0)').offset().top);
     });
 
-    function curry (func) {
-        return function (item) {
-            return $(item)[func];
-        };
-    }
-
     function scrollTo(height, cb) {
-        $('html, body').animate({scrollTop: height}, 400, "swing", cb);
+        $('html, body').animate({scrollTop: height}, 400, 'swing', cb);
     }
 
     function subscribeHeight () {
