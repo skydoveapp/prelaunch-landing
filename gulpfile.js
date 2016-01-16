@@ -62,7 +62,7 @@ gulp.task('fonts', function () {
         $.bowerFiles(),
         gulp.src('app/fonts/**/*')
     )
-        .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+        .pipe($.filter('**/*.{eot,svg,ttf,woff,TTF,EOT,SVG,WOFF}'))
         .pipe($.flatten())
         .pipe(gulp.dest('dist/fonts'))
         .pipe($.size());
