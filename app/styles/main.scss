@@ -30,6 +30,8 @@ $brand: #1386A0;
 
     .head-line {
         background-position: 80% bottom !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     #subscribe-form {
@@ -39,6 +41,12 @@ $brand: #1386A0;
             margin-left: 15px !important;
             margin-bottom: 15px;
         }
+    }
+
+    .logo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 }
 
