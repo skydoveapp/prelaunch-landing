@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var gutil = require('gulp-util');
+var mainBowerFiles = require('gulp-main-bower-files');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
@@ -44,6 +45,13 @@ gulp.task('html', ['styles', 'scripts'], function () {
         .pipe($.size());
 });
 
+gulp.task('miscellaneous', ['html'], function () {
+  return gulp.src('app/CNAME')
+      .pipe($.addSrc('app/*.{txt,ico}'))
+      .pipe(gulp.dest('dist'))
+      .pipe($.size());
+});
+
 gulp.task('images', function () {
     return gulp.src('app/images/**/*')
         .pipe($.cache($.imagemin({
@@ -57,11 +65,9 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-    var streamqueue = require('streamqueue');
-    return streamqueue({objectMode: true},
-        $.bowerFiles(),
-        gulp.src('app/fonts/**/*')
-    )
+    return gulp.src('./bower.json')
+        .pipe(mainBowerFiles())
+        .pipe($.addSrc('app/fonts/**/*'))
         .pipe($.filter('**/*.{eot,svg,ttf,woff,TTF,EOT,SVG,WOFF}'))
         .pipe($.flatten())
         .pipe(gulp.dest('dist/fonts'))
@@ -72,7 +78,7 @@ gulp.task('clean', function () {
     return gulp.src(['app/styles/main.css', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'images', 'fonts']);
+gulp.task('build', ['miscellaneous', 'images', 'fonts']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
