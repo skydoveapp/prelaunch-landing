@@ -45,7 +45,7 @@ gulp.task('html', ['styles', 'scripts'], function () {
         .pipe($.size());
 });
 
-gulp.task('miscellaneous', ['html'], function () {
+gulp.task('miscellaneous', function () {
   return gulp.src('app/CNAME')
       .pipe($.addSrc('app/*.{txt,ico}'))
       .pipe(gulp.dest('dist'))
@@ -64,6 +64,12 @@ gulp.task('images', function () {
         .pipe($.size());
 });
 
+gulp.task('icons', function () {
+    return gulp.src('app/icons/**/*')
+        .pipe(gulp.dest('dist/icons'))
+        .pipe($.size());
+});
+
 gulp.task('fonts', function () {
     return gulp.src('./bower.json')
         .pipe(mainBowerFiles())
@@ -78,7 +84,7 @@ gulp.task('clean', function () {
     return gulp.src(['app/styles/main.css', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['miscellaneous', 'images', 'fonts']);
+gulp.task('build', ['html', 'miscellaneous', 'icons', 'images', 'fonts']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
