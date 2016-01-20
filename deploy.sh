@@ -5,3 +5,4 @@ gulp build
 git commit -a -m "sync master"
 git subtree push --prefix dist origin gh-pages
 git checkout master
+bower install
