@@ -29,10 +29,14 @@ $brand: #1386A0;
         li {
             float: none !important;
             height: auto !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
+            margin-left: 10% !important;
+            margin-right: 10% !important;
             margin-top: 15px !important;
-            width: 240px !important;
+            width: auto !important;
+
+            br {
+              display: none;
+            }
         }
     }
 
@@ -120,11 +124,15 @@ p {
 }
 
 .image-container {
-    width: 980px;
+    max-width: 980px;
     height: 309px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
+
+    img {
+        max-width: 100vw;
+    }
 }
 
 .banner {
